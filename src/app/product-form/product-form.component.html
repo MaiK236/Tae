@@ -1,0 +1,80 @@
+<p>product-form works!</p>
+<p>form-update works!</p>
+
+<form [formGroup]="productProfileForm" (ngSubmit)="updateProduct()">
+    <div>
+      <label for="c1">Product Code:</label>
+      <input id="c1" formControlName="c1">
+    </div>
+    <div>
+      <label for="c2">Product Name:</label>
+      <input id="c2" formControlName="c2">
+    </div>
+    <div>
+      <label for="c3">Product Line:</label>
+      <input id="c3" formControlName="c3">
+    </div>
+    <div>
+      <label for="c4">Product Scale:</label>
+      <input id="c4" formControlName="c4">
+    </div>
+    <div>
+      <label for="c5">Product Vendor:</label>
+      <input id="c5" formControlName="c5">
+    </div>
+    <div>
+      <label for="c6">Product Description:</label>
+      <input id="c6" formControlName="c6">
+    </div>
+    <div>
+      <label for="c7">Product Quantity:</label>
+      <input id="c7" formControlName="c7">
+    </div>
+    <div>
+      <label for="c8">Product Price:</label>
+      <input id="c8" formControlName="c8">
+    </div>
+    <div>
+      <label for="c9">Product MSRP:</label>
+      <input id="c9" formControlName="c9">
+    </div>
+
+    <!--Update-->
+    <button type="submit" [disabled]="productProfileForm.invalid">Update Product</button>
+
+  </form>
+  <button type="button"(click)='getProducts2()'>GetProduct</button>
+  
+  <!--<table>
+    <tbody>
+    @for (x of products$; track x.productCode) {
+        <tr>
+        <td>{{ x.productCode }}</td>
+        <td>{{ x.productName }}</td>
+        <td>{{ x.productLine}}</td>
+        <td>{{ x.productScale }}</td>
+        <td>{{ x.productVendor }}</td>
+        <td>{{ x.productDescription}}</td>
+        <td>{{ x.quantityInStock }}</td>
+        <td>{{ x.buyPrice }}</td>
+        <td>{{ x.MSRP}}</td>                
+        </tr>
+    }
+    </tbody>
+  </table>-->
+
+  <table>
+    <tbody>
+      <tr *ngIf="products$ && products$.length > 0">
+        <td>{{ products$[0].productCode }}</td>
+        <td>{{ products$[0].productName }}</td>
+        <td>{{ products$[0].productLine }}</td>
+        <td>{{ products$[0].productScale }}</td>
+        <td>{{ products$[0].productVendor }}</td>
+        <td>{{ products$[0].productDescription }}</td>
+        <td>{{ products$[0].quantityInStock }}</td>
+        <td>{{ products$[0].buyPrice }}</td>
+        <td>{{ products$[0].MSRP }}</td>
+      </tr>
+    </tbody>
+  </table>
